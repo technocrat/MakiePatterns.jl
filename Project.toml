@@ -10,6 +10,6 @@ Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
 TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
 
 [compat]
-FileIO = "1"
+FileIO = "1.16"
 Makie = "0.21, 0.22"
 julia = "1.11, 1.12"
