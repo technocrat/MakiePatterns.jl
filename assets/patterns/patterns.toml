@@ -1,0 +1,23 @@
+# MakiePatterns default configuration
+#
+# This file specifies default downsample factors for pattern files.
+# The downsample factor controls how small the pattern appears when tiled:
+# - Larger factors → smaller patterns
+# - Smaller factors → larger patterns
+#
+# You can set a global default and override it for specific files.
+
+# Global default factor (applies to all patterns unless overridden)
+default_factor = 3
+
+# Example overrides for specific patterns
+# Uncomment and modify as needed:
+#
+# ["701.png"]
+# factor = 3
+#
+# ["610.png"]
+# factor = 4
+#
+# ["710.png"]
+# factor = 6

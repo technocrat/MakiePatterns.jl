@@ -1,0 +1,27 @@
+# Julia
+*.jl.*.cov
+*.jl.cov
+*.jl.mem
+/Manifest.toml
+
+# Build artifacts
+/deps/deps.jl
+/deps/build.log
+
+# macOS
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Documentation builds
+/docs/build/
+/docs/site/
+/docs/Manifest.toml
+
+# Local development
+*.log
