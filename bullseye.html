@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bullseye Map - Chicago</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    body, html { margin: 0; padding: 0; width: 100%; height: 100%; }
+    #map { width: 100%; height: 100vh; }
+    .legend {
+        padding: 10px; background: white; border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2); line-height: 1.5;
+        font-family: sans-serif;
+    }
+    .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+var map = L.map('map').setView([41.881832, -87.623177], 4);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+L.marker([41.881832, -87.623177]).addTo(map)
+    .bindPopup('<b>Chicago</b><br>Centerpoint')
+    .openPopup();
+
+var colors = ['#D32F2F', '#388E3C', '#1976D2', '#FBC02D', '#7B1FA2'];
+var radii = [50, 100, 200]; 
+
+radii.forEach(function(radius, index) {
+    L.circle([41.881832, -87.623177], {
+        radius: radius * 1609.34, // Convert Miles to Meters
+        color: colors[index % colors.length],
+        weight: 2,
+        fillColor: colors[index % colors.length],
+        fillOpacity: 0.1,
+        interactive: false
+    }).addTo(map);
+});
+
+var legend = L.control({position: 'bottomleft'});
+legend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'legend');
+    div.innerHTML = '<strong>Distance (Miles)</strong><br>';
+    radii.forEach(function(radius, i) {
+        div.innerHTML += '<i style="background:' + colors[i % colors.length] + '"></i> ' + radius + ' mi<br>';
+    });
+    return div;
+};
+legend.addTo(map);
+
+window.addEventListener('resize', function() { map.invalidateSize(); });
+</script>
+</body>
+</html>

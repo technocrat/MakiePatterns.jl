@@ -5,11 +5,13 @@ authors = ["Richard Careaga <public@careaga.net>"]
 
 [deps]
 Artifacts = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
+DataFramesMeta = "1313f7d8-7da2-5740-9ea0-a2ca25f37964"
 FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
 Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
 TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
 
 [compat]
+DataFramesMeta = "0.15.6"
 FileIO = "1.16"
 Makie = "0.21, 0.22"
 julia = "1.11, 1.12"
