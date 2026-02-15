@@ -17,7 +17,7 @@ Resolve a pattern filename to its full path in the artifact directory.
 The full path to the pattern file in the artifact directory.
 """
 function _pattern_asset_path(filename::AbstractString)
-    joinpath(artifact"patterns", "patterns", filename)
+    joinpath(_patterns_root(), filename)
 end
 
 """

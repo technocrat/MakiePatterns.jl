@@ -62,7 +62,11 @@ Module initialization function.
 Automatically registers all patterns found in the artifact directory.
 """
 function __init__()
-    auto_register_patterns!()
+    try
+        auto_register_patterns!()
+    catch err
+        @warn "MakiePatterns auto-registration skipped during initialization" exception=(err, catch_backtrace())
+    end
 end
 
 end # module MakiePatterns
