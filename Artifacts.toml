@@ -1,2 +1,6 @@
 [patterns]
-git-tree-sha1 = "0c89619a234f2168d7a7357b5fbc744d7025236c"
+git-tree-sha1 = "b7d55d4c7caa2f3f374b3fc18318cfcc089f89b0"
+
+    [[patterns.download]]
+    sha256 = "cf65154fe463721801ff431bb00245b19767c7f32337fc377f8b6b6e3fdafb1b"
+    url = "https://github.com/technocrat/MakiePatterns.jl/releases/download/0.1.3/patterns.tar.gz"
