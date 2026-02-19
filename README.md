@@ -14,17 +14,9 @@ A Julia package for using raster pattern fills with Makie plotting, particularly
 
 ## Installation
 
-Since this is a local package (not yet registered), you can add it using:
-
 ```julia
 using Pkg
-Pkg.develop(path="/Users/technocrat/projects/MakiePatterns.jl")
-```
-
-Or in development mode from within the package directory:
-
-```julia
-] dev .
+Pkg.add("MakiePatterns")
 ```
 
 ## Quick Start

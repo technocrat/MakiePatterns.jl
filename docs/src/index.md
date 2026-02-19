@@ -16,7 +16,7 @@ A Julia package for using raster pattern fills with Makie plotting, particularly
 
 ```julia
 using Pkg
-Pkg.add(url="https://github.com/technocrat/MakiePatterns.jl")
+Pkg.add("MakiePatterns")
 ```
 
 Or for development:

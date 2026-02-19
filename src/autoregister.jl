@@ -42,17 +42,9 @@ end
 """
     _patterns_root()
 
-Get the directory containing pattern assets from the artifact.
-
-Supports both layouts:
-- `<artifact>/patterns/*.png`
-- `<artifact>/*.png`
+Get the root directory containing pattern assets from the artifact.
 """
-function _patterns_root()
-    artifact_root = artifact"patterns"
-    nested_root = joinpath(artifact_root, "patterns")
-    return isdir(nested_root) ? nested_root : artifact_root
-end
+_patterns_root() = artifact"patterns"
 
 """
     load_pattern_defaults(; filename="patterns.toml")
@@ -144,8 +136,6 @@ function auto_register_patterns!(;
     # deterministic order
     files = sort(readdir(root; join=false))
     for fn in files
-        # Ignore hidden/metadata files such as macOS AppleDouble entries.
-        startswith(fn, ".") && continue
         full = joinpath(root, fn)
         isfile(full) || continue
         ext = lowercase(splitext(fn)[2])
