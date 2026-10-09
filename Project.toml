@@ -1,6 +1,6 @@
 name = "MakiePatterns"
 uuid = "1dd4001f-e390-44df-a925-c4b057495931"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["Richard Careaga <public@careaga.net>"]
 
 [deps]

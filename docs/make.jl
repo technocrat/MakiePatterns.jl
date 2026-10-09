@@ -1,11 +1,15 @@
 using Documenter
+using MaterialDocs
 using MakiePatterns
 
 makedocs(;
     sitename="MakiePatterns.jl",
     authors="Richard Careaga <public@careaga.net>",
     modules=[MakiePatterns],
-    format=Documenter.HTML(;
+    format=Material3(;
+        theme=:sandstone,
+        dark_mode=:toggle,
+        edit_link="main",
         prettyurls=get(ENV, "CI", "false") == "true",
         canonical="https://technocrat.github.io/MakiePatterns.jl",
         assets=String[],
