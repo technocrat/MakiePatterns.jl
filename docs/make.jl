@@ -24,6 +24,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/technocrat/MakiePatterns.jl",
+    repo="github.com/technocrat/MakiePatterns.jl.git",
     devbranch="main",
 )
