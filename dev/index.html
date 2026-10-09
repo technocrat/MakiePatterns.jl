@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MakiePatterns.jl — MakiePatterns.jl</title>
+  <link rel="stylesheet" href="./assets/materialdocs.css?v=634d2c1b">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Libre+Baskerville:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap">
+  <meta name="title" content="MakiePatterns.jl — MakiePatterns.jl">
+  <meta property="og:title" content="MakiePatterns.jl — MakiePatterns.jl">
+  <meta property="twitter:title" content="MakiePatterns.jl — MakiePatterns.jl">
+  <meta name="description" content="Documentation for MakiePatterns.jl.">
+  <meta property="og:description" content="Documentation for MakiePatterns.jl.">
+  <meta property="twitter:description" content="Documentation for MakiePatterns.jl.">
+  <meta property="og:url" content="https://technocrat.github.io/MakiePatterns.jl/">
+  <meta property="twitter:url" content="https://technocrat.github.io/MakiePatterns.jl/">
+  <link rel="canonical" href="https://technocrat.github.io/MakiePatterns.jl/">
+  <script>
+    (function(){
+      document.documentElement.classList.add('no-transition');
+      var t=localStorage.getItem('md-theme');if(t)document.documentElement.setAttribute('data-theme',t);
+      window.addEventListener('load',function(){setTimeout(function(){document.documentElement.classList.remove('no-transition');},50);});
+    })()
+  </script>
+</head>
+<body data-warn-outdated>
+  <header class="md-navbar">
+    <button id="md-hamburger" class="md-icon-btn md-hamburger" aria-label="Toggle navigation" aria-expanded="false"><svg class="md-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></button>
+    <span class="md-navbar-title">MakiePatterns.jl</span>
+    <span class="md-navbar-spacer"></span>
+    <button id="md-search-btn" class="md-search-bar" aria-label="Search documentation" aria-expanded="false">
+      <svg class="md-icon md-search-bar-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <span class="md-search-bar-label">Search docs</span>
+      <kbd class="md-search-bar-kbd">Ctrl K</kbd>
+    </button>
+    <div id="md-version" class="md-version" hidden>
+      <button id="md-version-btn" class="md-version-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select documentation version">
+        <span id="md-version-current" class="md-version-current"></span>
+        <svg class="md-icon md-version-caret" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <ul id="md-version-menu" class="md-version-menu" role="listbox" hidden></ul>
+    </div>
+    <button id="md-theme-toggle" class="md-icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode"><svg class="md-icon md-icon-light" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg><svg class="md-icon md-icon-dark" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg></button>
+  </header>
+  <div class="md-layout">
+    <nav class="md-sidebar">
+      <a href="./" class="md-nav-active">Home</a>
+      <a href="./api/">API Reference</a>
+      <a href="./examples/">Examples</a>
+    </nav>
+    <main class="md-content">
+      <article class="md-article">
+      <div class="md-article-actions"><a class="md-icon-btn md-edit-link" href="https://github.com/technocrat/MakiePatterns.jl" title="Edit source on GitHub" aria-label="Edit source on GitHub"><svg class="md-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 000-1.41l-2.34-2.34a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a></div>
+<h1 id="MakiePatterns.jl" class="md-heading">MakiePatterns.jl<a href="#MakiePatterns.jl" class="md-heading-anchor" aria-label="Link to this section">#</a></h1>
+<p>A Julia package for using raster pattern fills with Makie plotting, particularly useful for creating choropleth maps with pattern-based classifications instead of color gradients. The native Pattern type supports only <code class="md-code-inline">/</code>, <code class="md-code-inline">\</code>, <code class="md-code-inline">-</code>, <code class="md-code-inline">|</code>, <code class="md-code-inline">x</code>, and <code class="md-code-inline">+</code>.</p>
+<h2 id="Features" class="md-heading">Features<a href="#Features" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<ul class="md-list-tight">
+<li><p><strong>471 Built-in Patterns</strong>: Ships with a comprehensive collection of geologic/cartographic patterns used by the U.S. Geological Service</p>
+</li>
+<li><p><strong>User patterns can be added from PNG files</strong></p>
+</li>
+<li><p><strong>Auto-registration</strong>: Patterns are automatically discovered and registered at module load time</p>
+</li>
+<li><p><strong>Efficient Caching</strong>: Loaded patterns are cached to avoid repeated file I/O</p>
+</li>
+<li><p><strong>Flexible Scaling</strong>: Control pattern size via downsample factors</p>
+</li>
+<li><p><strong>Convenient API</strong>: Simple functions for single or multi-pattern plots</p>
+</li>
+<li><p><strong>Choropleth Support</strong>: <code class="md-code-inline">patternpoly!</code> function for easy bin-based pattern mapping</p>
+</li>
+</ul>
+<h2 id="Installation" class="md-heading">Installation<a href="#Installation" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using Pkg
+Pkg.add(&quot;MakiePatterns&quot;)</code></pre>
+</div>
+<p>Or for development:</p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using Pkg
+Pkg.develop(path=&quot;/path/to/MakiePatterns.jl&quot;)</code></pre>
+</div>
+<h2 id="Quick-Start" class="md-heading">Quick Start<a href="#Quick-Start" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using MakiePatterns
+using GeoMakie, CairoMakie
+
+# See all available patterns
+patterns = available_patterns()
+# [:p101_C, :p101_DO, :p101_K, :p101_M, :p102_C, ...]
+
+# Create a single pattern
+pat = pattern(:p101_C)
+
+# Use in a plot
+f = Figure()
+ax = Axis(f[1, 1])
+poly!(ax, some_geometry; color=pat, strokewidth=0.5)</code></pre>
+</div>
+<h2 id="Demo" class="md-heading">Demo<a href="#Demo" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<p>Example of pattern-filled choropleth map using MakiePatterns:</p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using CairoMakie
+using DataFrames
+using Downloads
+using GeoDataFrames
+using GeoMakie
+using MakiePatterns
+
+url = &quot;https://juliamapping.com/addn/geojson_example.json&quot;
+tmp = Downloads.download(url)
+gdf = GeoDataFrames.read(tmp)  # auto-detects GeoJSON
+gdf.bins = [2, 1, 1, 1, 3, 1, 6, 4, 8, 4, 3, 3, 1, 3, 3, 1, 1, 2, 2, 1, 5, 6, 3, 1, 1, 2, 1, 1, 1, 2, 7, 1, 4, 3, 1, 3, 1, 1, 3, 7, 2, 2, 2, 2, 1, 1, 3, 2, 2, 2, 1, 0]
+gdf = subset(gdf, :name =&gt; ByRow(x -&gt; x ∉ [&quot;Alaska&quot;, &quot;Hawaii&quot;, &quot;Puerto Rico&quot;]))
+
+# Create figure
+f = Figure(size=(3200, 2400))
+ga = GeoAxis(f[1, 1]; dest=&quot;EPSG:5070&quot;)
+hidedecorations!(ga)
+
+# Use different downsample factors for different bins
+# Smaller factors = larger patterns, larger factors = smaller patterns
+patternpoly!(ga, gdf.geometry, gdf.bins;
+             patterns=[:p313_K, :p315_K, :p317_K, :p319_K, :p601, :p605, :p632, :p634, :p636],
+             factors=[6, 6, 6, 6, 4, 4, 4, 4, 4],
+             strokewidth=0.5)
+
+f</code></pre>
+</div>
+<p><figure class="md-figure">
+<img src="assets/demo.svg" alt="Demo Map" loading="lazy">
+<figcaption>Demo Map</figcaption>
+</figure>
+</p>
+<h2 id="Pattern-Naming-Convention" class="md-heading">Pattern Naming Convention<a href="#Pattern-Naming-Convention" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<p>Patterns are automatically named based on their filename:</p>
+<ul class="md-list-tight">
+<li><p>Files starting with digits get a <code class="md-code-inline">p</code> prefix: <code class="md-code-inline">701.png</code> → <code class="md-code-inline">:p701</code></p>
+</li>
+<li><p>Files with descriptive names keep them: <code class="md-code-inline">hatch_dense.png</code> → <code class="md-code-inline">:hatch_dense</code></p>
+</li>
+<li><p>Hyphens and whitespace are converted to underscores: <code class="md-code-inline">101-C.png</code> → <code class="md-code-inline">:p101_C</code></p>
+</li>
+</ul>
+<h2 id="Controlling-Pattern-Scale" class="md-heading">Controlling Pattern Scale<a href="#Controlling-Pattern-Scale" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<p>The downsample factor controls how large patterns appear:</p>
+<ul class="md-list-tight">
+<li><p><strong>Larger factors</strong> → <strong>smaller patterns</strong> (more repetitions)</p>
+</li>
+<li><p><strong>Smaller factors</strong> → <strong>larger patterns</strong> (fewer repetitions)</p>
+</li>
+</ul>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia"># Small pattern (more tiles)
+pat_small = pattern(:p101_C; factor=10)
+
+# Large pattern (fewer tiles)
+pat_large = pattern(:p101_C; factor=2)
+
+# Use default factor from patterns.toml
+pat_default = pattern(:p101_C)</code></pre>
+</div>
+<h2 id="Pattern-Sources" class="md-heading">Pattern Sources<a href="#Pattern-Sources" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<p>Pattern assets are derived from the <a href="https://ngmdb.usgs.gov/fgdc_gds/geolsymstd/download.php">Federal Geographic Data Committee Digital Cartographic Standard for Geologic Map Symbolization</a> by way of Daven Quinn&#39;s <a href="https://github.com/davenquinn/geologic-patterns">github repo</a> under a Creative Commons CC0 License. A pattern chart can be found <a href="https://ngmdb.usgs.gov/fgdc_gds/geolsymstd/fgdc-geolsym-patternchart.pdf">here</a>.</p>
+<h2 id="Contents" class="md-heading">Contents<a href="#Contents" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<nav class="md-contents">
+<ul>
+<li><a href="./api/#API-Reference">API Reference</a></li>
+<li><a href="./api/#Pattern-Management">Pattern Management</a></li>
+<li><a href="./api/#Pattern-Loading">Pattern Loading</a></li>
+<li><a href="./api/#Plotting-Functions">Plotting Functions</a></li>
+<li><a href="./api/#Cache-Management">Cache Management</a></li>
+<li><a href="./api/#Index">Index</a></li>
+<li><a href="./examples/#Examples">Examples</a></li>
+<li><a href="./examples/#Basic-Pattern-Usage">Basic Pattern Usage</a></li>
+<li><a href="./examples/#Choropleth-Maps">Choropleth Maps</a></li>
+<li><a href="./examples/#Pattern-Customization">Pattern Customization</a></li>
+<li><a href="./examples/#Working-with-Cache">Working with Cache</a></li>
+<li><a href="./examples/#Advanced-Usage">Advanced Usage</a></li>
+</ul>
+</nav>
+      </article>
+      <footer class="md-footer">
+<p>Built with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and <a href="https://github.com/mthelm85/MaterialDocs.jl">MaterialDocs.jl</a>.</p>
+      </footer>
+    </main>
+    <aside class="md-toc">
+      <div class="md-toc-inner">
+        <p class="md-toc-title">On this page</p>
+          <a class="md-toc-link md-toc-h2" href="#Features">Features</a>
+          <a class="md-toc-link md-toc-h2" href="#Installation">Installation</a>
+          <a class="md-toc-link md-toc-h2" href="#Quick-Start">Quick Start</a>
+          <a class="md-toc-link md-toc-h2" href="#Demo">Demo</a>
+          <a class="md-toc-link md-toc-h2" href="#Pattern-Naming-Convention">Pattern Naming Convention</a>
+          <a class="md-toc-link md-toc-h2" href="#Controlling-Pattern-Scale">Controlling Pattern Scale</a>
+          <a class="md-toc-link md-toc-h2" href="#Pattern-Sources">Pattern Sources</a>
+          <a class="md-toc-link md-toc-h2" href="#Contents">Contents</a>
+      </div>
+    </aside>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/julia.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/julia-repl.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script src="./siteinfo.js"></script>
+  <script src="./../versions.js"></script>
+  <script src="./assets/materialdocs.js?v=634d2c1b"></script>
+</body>
+</html>

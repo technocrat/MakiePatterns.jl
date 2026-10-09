@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>API Reference — MakiePatterns.jl</title>
+  <link rel="stylesheet" href="../assets/materialdocs.css?v=eeff83c5">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Libre+Baskerville:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap">
+  <meta name="title" content="API Reference — MakiePatterns.jl">
+  <meta property="og:title" content="API Reference — MakiePatterns.jl">
+  <meta property="twitter:title" content="API Reference — MakiePatterns.jl">
+  <meta name="description" content="Documentation for MakiePatterns.jl.">
+  <meta property="og:description" content="Documentation for MakiePatterns.jl.">
+  <meta property="twitter:description" content="Documentation for MakiePatterns.jl.">
+  <meta property="og:url" content="https://technocrat.github.io/MakiePatterns.jl/api/">
+  <meta property="twitter:url" content="https://technocrat.github.io/MakiePatterns.jl/api/">
+  <link rel="canonical" href="https://technocrat.github.io/MakiePatterns.jl/api/">
+  <script>
+    (function(){
+      document.documentElement.classList.add('no-transition');
+      var t=localStorage.getItem('md-theme');if(t)document.documentElement.setAttribute('data-theme',t);
+      window.addEventListener('load',function(){setTimeout(function(){document.documentElement.classList.remove('no-transition');},50);});
+    })()
+  </script>
+</head>
+<body data-warn-outdated>
+  <header class="md-navbar">
+    <button id="md-hamburger" class="md-icon-btn md-hamburger" aria-label="Toggle navigation" aria-expanded="false"><svg class="md-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></button>
+    <span class="md-navbar-title">MakiePatterns.jl</span>
+    <span class="md-navbar-spacer"></span>
+    <button id="md-search-btn" class="md-search-bar" aria-label="Search documentation" aria-expanded="false">
+      <svg class="md-icon md-search-bar-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <span class="md-search-bar-label">Search docs</span>
+      <kbd class="md-search-bar-kbd">Ctrl K</kbd>
+    </button>
+    <div id="md-version" class="md-version" hidden>
+      <button id="md-version-btn" class="md-version-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select documentation version">
+        <span id="md-version-current" class="md-version-current"></span>
+        <svg class="md-icon md-version-caret" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <ul id="md-version-menu" class="md-version-menu" role="listbox" hidden></ul>
+    </div>
+    <button id="md-theme-toggle" class="md-icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode"><svg class="md-icon md-icon-light" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg><svg class="md-icon md-icon-dark" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg></button>
+  </header>
+  <div class="md-layout">
+    <nav class="md-sidebar">
+      <a href="../">Home</a>
+      <a href="../api/" class="md-nav-active">API Reference</a>
+      <a href="../examples/">Examples</a>
+    </nav>
+    <main class="md-content">
+      <article class="md-article">
+      <div class="md-article-actions"><a class="md-icon-btn md-edit-link" href="https://github.com/technocrat/MakiePatterns.jl" title="Edit source on GitHub" aria-label="Edit source on GitHub"><svg class="md-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 000-1.41l-2.34-2.34a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a></div>
+<h1 id="API-Reference" class="md-heading">API Reference<a href="#API-Reference" class="md-heading-anchor" aria-label="Link to this section">#</a></h1>
+<div class="md-docstring" id="MakiePatterns">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>MakiePatterns</code></h4>
+<a class="md-docstring-source" href="https://github.com/technocrat/MakiePatterns.jl" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">MakiePatterns</code></pre>
+</div>
+<p>A Julia package for using raster pattern fills with Makie plotting.</p>
+<p><strong>Features</strong></p>
+<ul class="md-list-tight">
+<li><p>Auto-registration of pattern files from package assets</p>
+</li>
+<li><p>Efficient caching of loaded patterns</p>
+</li>
+<li><p>Convenient <code class="md-code-inline">patternpoly!</code> function for choropleth-style maps</p>
+</li>
+<li><p>Support for custom downsample factors to control pattern scale</p>
+</li>
+</ul>
+<p><strong>Quick Start</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using MakiePatterns, GeoMakie, CairoMakie
+
+# See available patterns
+patterns = available_patterns()
+
+# Create a pattern
+pat = pattern(:p701)
+
+# Use in a plot
+poly!(ax, geometry; color=pat, strokewidth=0.5)
+
+# Or use the convenience function for multiple bins
+patternpoly!(ax, geometries, bins;
+             patterns=[:p701, :p610, :p710, :p643])</code></pre>
+</div>
+<p><strong>Exports</strong></p>
+<ul class="md-list-tight">
+<li><p><code class="md-code-inline">register_pattern!</code>: Manually register a pattern</p>
+</li>
+<li><p><code class="md-code-inline">available_patterns</code>: List all registered patterns</p>
+</li>
+<li><p><code class="md-code-inline">load_pattern_defaults</code>: Load pattern metadata from TOML</p>
+</li>
+<li><p><code class="md-code-inline">auto_register_patterns!</code>: Auto-register all patterns from artifact</p>
+</li>
+<li><p><code class="md-code-inline">make_pattern</code>: Load and downsample a pattern</p>
+</li>
+<li><p><code class="md-code-inline">pattern</code>: Create a Makie.Pattern from a registered pattern</p>
+</li>
+<li><p><code class="md-code-inline">patternpoly!</code>: Plot geometries with pattern fills by bin</p>
+</li>
+<li><p><code class="md-code-inline">clear_pattern_cache!</code>: Clear the pattern cache</p>
+</li>
+</ul>
+</div>
+</div>
+<h2 id="Pattern-Management" class="md-heading">Pattern Management<a href="#Pattern-Management" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<div class="md-docstring" id="MakiePatterns.register_pattern!">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>MakiePatterns.register_pattern!</code></h4>
+<a class="md-docstring-source" href="https://github.com/technocrat/MakiePatterns.jl" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">register_pattern!(name::Symbol, filename::AbstractString; default_factor::Int=3)</code></pre>
+</div>
+<p>Register a pattern with a given name, filename, and default downsample factor.</p>
+<p><strong>Arguments</strong></p>
+<ul class="md-list-tight">
+<li><p><code class="md-code-inline">name::Symbol</code>: The pattern name (e.g., <code class="md-code-inline">:p701</code>)</p>
+</li>
+<li><p><code class="md-code-inline">filename::AbstractString</code>: The pattern filename (e.g., &quot;701.png&quot;)</p>
+</li>
+<li><p><code class="md-code-inline">default_factor::Int=3</code>: Default downsample factor (larger = smaller pattern)</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>The pattern name symbol.</p>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">register_pattern!(:p701, &quot;701.png&quot;; default_factor=3)</code></pre>
+</div>
+</div>
+</div>
+<div class="md-docstring" id="MakiePatterns.available_patterns">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>MakiePatterns.available_patterns</code></h4>
+<a class="md-docstring-source" href="https://github.com/technocrat/MakiePatterns.jl" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">available_patterns()</code></pre>
+</div>
+<p>Return a sorted vector of all registered pattern names.</p>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">patterns = available_patterns()
+# [:p601, :p610, :p643, ...]</code></pre>
+</div>
+</div>
+</div>
+<div class="md-docstring" id="MakiePatterns.auto_register_patterns!">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>MakiePatterns.auto_register_patterns!</code></h4>
+<a class="md-docstring-source" href="https://github.com/technocrat/MakiePatterns.jl" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">auto_register_patterns!(; defaults=load_pattern_defaults(), overwrite=true)</code></pre>
+</div>
+<p>Scan the patterns artifact directory and register all eligible pattern files.</p>
+<p><strong>Arguments</strong></p>
+<ul class="md-list-tight">
+<li><p><code class="md-code-inline">defaults::Dict{String,Int}</code>: Maps filenames to default downsample factors</p>
+</li>
+<li><p><code class="md-code-inline">overwrite::Bool=true</code>: If true, overwrites existing registrations</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A sorted list of all registered pattern names.</p>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia"># Auto-register all patterns with defaults from patterns.toml
+auto_register_patterns!()
+
+# Get list of available patterns
+patterns = available_patterns()</code></pre>
+</div>
+</div>
+</div>
+<div class="md-docstring" id="MakiePatterns.load_pattern_defaults">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>MakiePatterns.load_pattern_defaults</code></h4>
+<a class="md-docstring-source" href="https://github.com/technocrat/MakiePatterns.jl" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">load_pattern_defaults(; filename=&quot;patterns.toml&quot;)</code></pre>
+</div>
+<p>Load default downsample factors from a TOML file in the patterns artifact.</p>
+<p><strong>TOML Format</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-toml">default_factor = 3
+
+[&quot;701.png&quot;]
+factor = 3
+
+[&quot;610.png&quot;]
+factor = 4</code></pre>
+</div>
+<p><strong>Returns</strong></p>
+<p>A <code class="md-code-inline">Dict{String,Int}</code> mapping filenames to their default factors. The special key <code class="md-code-inline">&quot;__DEFAULT__&quot;</code> contains the global default factor if specified.</p>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">defaults = load_pattern_defaults()
+factor = get(defaults, &quot;701.png&quot;, 3)</code></pre>
+</div>
+</div>
+</div>
+<h2 id="Pattern-Loading" class="md-heading">Pattern Loading<a href="#Pattern-Loading" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<div class="md-docstring" id="MakiePatterns.make_pattern">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>MakiePatterns.make_pattern</code></h4>
+<a class="md-docstring-source" href="https://github.com/technocrat/MakiePatterns.jl" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">make_pattern(name::Symbol; factor=nothing, cache=true)</code></pre>
+</div>
+<p>Load and downsample a registered pattern by name.</p>
+<p><strong>Arguments</strong></p>
+<ul class="md-list-tight">
+<li><p><code class="md-code-inline">name::Symbol</code>: The pattern name (must be registered)</p>
+</li>
+<li><p><code class="md-code-inline">factor::Union{Nothing,Int}=nothing</code>: Downsample factor (larger = smaller pattern). If <code class="md-code-inline">nothing</code>, uses the registered default factor.</p>
+</li>
+<li><p><code class="md-code-inline">cache::Bool=true</code>: Whether to cache the loaded pattern</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A downsampled matrix suitable for use with <code class="md-code-inline">Makie.Pattern</code>.</p>
+<p><strong>Details</strong></p>
+<p>The downsampling takes every <code class="md-code-inline">factor</code>th row and column from the loaded image, effectively making the pattern appear smaller when tiled. Larger factors produce smaller patterns.</p>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia"># Load pattern with default factor
+mat = make_pattern(:p701)
+
+# Load pattern with custom factor
+mat = make_pattern(:p701; factor=5)
+
+# Load without caching
+mat = make_pattern(:p701; cache=false)</code></pre>
+</div>
+</div>
+</div>
+<div class="md-docstring" id="MakiePatterns.pattern">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>MakiePatterns.pattern</code></h4>
+<a class="md-docstring-source" href="https://github.com/technocrat/MakiePatterns.jl" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">pattern(name::Symbol; factor=nothing, cache=true)</code></pre>
+</div>
+<p>Create a Makie.Pattern from a registered pattern.</p>
+<p><strong>Arguments</strong></p>
+<ul class="md-list-tight">
+<li><p><code class="md-code-inline">name::Symbol</code>: The pattern name (must be registered)</p>
+</li>
+<li><p><code class="md-code-inline">factor::Union{Nothing,Int}=nothing</code>: Downsample factor (larger = smaller pattern). If <code class="md-code-inline">nothing</code>, uses the registered default factor.</p>
+</li>
+<li><p><code class="md-code-inline">cache::Bool=true</code>: Whether to cache the loaded pattern</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A <code class="md-code-inline">Makie.Pattern</code> object that can be used as a color fill in Makie plots.</p>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia"># Create a pattern with default settings
+pat = pattern(:p701)
+
+# Use the pattern in a plot
+poly!(ax, geometries; color=pat, strokewidth=0.5)
+
+# Create a pattern with custom factor
+pat_small = pattern(:p701; factor=10)  # smaller pattern
+pat_large = pattern(:p701; factor=2)   # larger pattern</code></pre>
+</div>
+</div>
+</div>
+<h2 id="Plotting-Functions" class="md-heading">Plotting Functions<a href="#Plotting-Functions" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<div class="md-docstring" id="MakiePatterns.patternpoly!">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>MakiePatterns.patternpoly!</code></h4>
+<a class="md-docstring-source" href="https://github.com/technocrat/MakiePatterns.jl" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">patternpoly!(ax, geoms, bins; patterns, factors=nothing, strokewidth=0.5, cache=true, kwargs...)</code></pre>
+</div>
+<p>Plot geometries with pattern fills based on integer bin codes.</p>
+<p><strong>Arguments</strong></p>
+<ul class="md-list-tight">
+<li><p><code class="md-code-inline">ax</code>: A Makie axis (e.g., <code class="md-code-inline">Axis</code>, <code class="md-code-inline">GeoAxis</code>)</p>
+</li>
+<li><p><code class="md-code-inline">geoms</code>: Vector of geometries (must have same length as <code class="md-code-inline">bins</code>)</p>
+</li>
+<li><p><code class="md-code-inline">bins</code>: Vector of integer bin codes (typically 1:k)</p>
+</li>
+<li><p><code class="md-code-inline">patterns::Vector{Symbol}</code>: Vector of registered pattern names, indexed by bin value</p>
+</li>
+<li><p><code class="md-code-inline">factors::Union{Nothing,Vector{Int}}=nothing</code>: Optional vector of custom downsample factors per pattern</p>
+</li>
+<li><p><code class="md-code-inline">strokewidth=0.5</code>: Stroke width for polygon outlines</p>
+</li>
+<li><p><code class="md-code-inline">cache::Bool=true</code>: Whether to cache loaded patterns</p>
+</li>
+<li><p><code class="md-code-inline">kwargs...</code>: Additional keyword arguments passed to <code class="md-code-inline">poly!</code></p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>The axis object.</p>
+<p><strong>Details</strong></p>
+<p>This function simplifies the process of creating choropleth-style maps with pattern fills. Instead of manually calling <code class="md-code-inline">poly!</code> for each bin, you can specify all patterns at once and the function handles the grouping and plotting.</p>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using MakiePatterns, GeoMakie, CairoMakie
+
+# Assuming you have a GeoDataFrame `df` with a `geometry` column
+# and a `bins` column with values 1:8
+
+f = Figure(size=(3200, 2400))
+ga = GeoAxis(f[1, 1]; dest=&quot;EPSG:5070&quot;)
+hidedecorations!(ga)
+
+# Plot with 8 different patterns
+patternpoly!(ga, df.geometry, df.bins;
+             patterns=[:p701, :p610, :p710, :p643, :p656, :p601, :p707, :p717],
+             strokewidth=0.5)
+
+f</code></pre>
+</div>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia"># Use custom factors for specific patterns
+patternpoly!(ga, df.geometry, df.bins;
+             patterns=[:p701, :p610, :p710, :p643],
+             factors=[3, 4, 6, 4],
+             strokewidth=0.5)</code></pre>
+</div>
+</div>
+</div>
+<h2 id="Cache-Management" class="md-heading">Cache Management<a href="#Cache-Management" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<div class="md-docstring" id="MakiePatterns.clear_pattern_cache!">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>MakiePatterns.clear_pattern_cache!</code></h4>
+<a class="md-docstring-source" href="https://github.com/technocrat/MakiePatterns.jl" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">clear_pattern_cache!()</code></pre>
+</div>
+<p>Clear all cached pattern matrices.</p>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">clear_pattern_cache!()</code></pre>
+</div>
+</div>
+</div>
+<h2 id="Index" class="md-heading">Index<a href="#Index" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<div class="md-index">
+<ul>
+<li><a href="#MakiePatterns"><code>MakiePatterns</code></a></li>
+<li><a href="#MakiePatterns.auto_register_patterns!"><code>MakiePatterns.auto_register_patterns!</code></a></li>
+<li><a href="#MakiePatterns.available_patterns"><code>MakiePatterns.available_patterns</code></a></li>
+<li><a href="#MakiePatterns.clear_pattern_cache!"><code>MakiePatterns.clear_pattern_cache!</code></a></li>
+<li><a href="#MakiePatterns.load_pattern_defaults"><code>MakiePatterns.load_pattern_defaults</code></a></li>
+<li><a href="#MakiePatterns.make_pattern"><code>MakiePatterns.make_pattern</code></a></li>
+<li><a href="#MakiePatterns.pattern"><code>MakiePatterns.pattern</code></a></li>
+<li><a href="#MakiePatterns.patternpoly!"><code>MakiePatterns.patternpoly!</code></a></li>
+<li><a href="#MakiePatterns.register_pattern!"><code>MakiePatterns.register_pattern!</code></a></li>
+</ul>
+</div>
+      </article>
+      <footer class="md-footer">
+<p>Built with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and <a href="https://github.com/mthelm85/MaterialDocs.jl">MaterialDocs.jl</a>.</p>
+      </footer>
+    </main>
+    <aside class="md-toc">
+      <div class="md-toc-inner">
+        <p class="md-toc-title">On this page</p>
+          <a class="md-toc-link md-toc-h2" href="#Pattern-Management">Pattern Management</a>
+          <a class="md-toc-link md-toc-h2" href="#Pattern-Loading">Pattern Loading</a>
+          <a class="md-toc-link md-toc-h2" href="#Plotting-Functions">Plotting Functions</a>
+          <a class="md-toc-link md-toc-h2" href="#Cache-Management">Cache Management</a>
+          <a class="md-toc-link md-toc-h2" href="#Index">Index</a>
+      </div>
+    </aside>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/julia.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/julia-repl.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script src="../siteinfo.js"></script>
+  <script src="../../versions.js"></script>
+  <script src="../assets/materialdocs.js?v=eeff83c5"></script>
+</body>
+</html>
