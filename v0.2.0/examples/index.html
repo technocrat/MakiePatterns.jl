@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Examples — MakiePatterns.jl</title>
+  <link rel="stylesheet" href="../assets/materialdocs.css?v=2ad6f419">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Libre+Baskerville:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap">
+  <meta name="title" content="Examples — MakiePatterns.jl">
+  <meta property="og:title" content="Examples — MakiePatterns.jl">
+  <meta property="twitter:title" content="Examples — MakiePatterns.jl">
+  <meta name="description" content="Documentation for MakiePatterns.jl.">
+  <meta property="og:description" content="Documentation for MakiePatterns.jl.">
+  <meta property="twitter:description" content="Documentation for MakiePatterns.jl.">
+  <meta property="og:url" content="https://technocrat.github.io/MakiePatterns.jl/examples/">
+  <meta property="twitter:url" content="https://technocrat.github.io/MakiePatterns.jl/examples/">
+  <link rel="canonical" href="https://technocrat.github.io/MakiePatterns.jl/examples/">
+  <script>
+    (function(){
+      document.documentElement.classList.add('no-transition');
+      var t=localStorage.getItem('md-theme');if(t)document.documentElement.setAttribute('data-theme',t);
+      window.addEventListener('load',function(){setTimeout(function(){document.documentElement.classList.remove('no-transition');},50);});
+    })()
+  </script>
+</head>
+<body data-warn-outdated>
+  <header class="md-navbar">
+    <button id="md-hamburger" class="md-icon-btn md-hamburger" aria-label="Toggle navigation" aria-expanded="false"><svg class="md-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></button>
+    <span class="md-navbar-title">MakiePatterns.jl</span>
+    <span class="md-navbar-spacer"></span>
+    <button id="md-search-btn" class="md-search-bar" aria-label="Search documentation" aria-expanded="false">
+      <svg class="md-icon md-search-bar-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <span class="md-search-bar-label">Search docs</span>
+      <kbd class="md-search-bar-kbd">Ctrl K</kbd>
+    </button>
+    <div id="md-version" class="md-version" hidden>
+      <button id="md-version-btn" class="md-version-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select documentation version">
+        <span id="md-version-current" class="md-version-current"></span>
+        <svg class="md-icon md-version-caret" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <ul id="md-version-menu" class="md-version-menu" role="listbox" hidden></ul>
+    </div>
+    <button id="md-theme-toggle" class="md-icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode"><svg class="md-icon md-icon-light" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg><svg class="md-icon md-icon-dark" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg></button>
+  </header>
+  <div class="md-layout">
+    <nav class="md-sidebar">
+      <a href="../">Home</a>
+      <a href="../api/">API Reference</a>
+      <a href="../examples/" class="md-nav-active">Examples</a>
+    </nav>
+    <main class="md-content">
+      <article class="md-article">
+      <div class="md-article-actions"><a class="md-icon-btn md-edit-link" href="https://github.com/technocrat/MakiePatterns.jl" title="Edit source on GitHub" aria-label="Edit source on GitHub"><svg class="md-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 000-1.41l-2.34-2.34a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a></div>
+<h1 id="Examples" class="md-heading">Examples<a href="#Examples" class="md-heading-anchor" aria-label="Link to this section">#</a></h1>
+<h2 id="Basic-Pattern-Usage" class="md-heading">Basic Pattern Usage<a href="#Basic-Pattern-Usage" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<h3 id="Single-Pattern" class="md-heading">Single Pattern<a href="#Single-Pattern" class="md-heading-anchor" aria-label="Link to this section">#</a></h3>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using MakiePatterns
+using CairoMakie
+
+# Load a pattern
+pat = pattern(:p101_C)
+
+# Create a simple plot
+f = Figure()
+ax = Axis(f[1, 1])
+
+# Create some simple geometry
+rect = [Point2f(0, 0), Point2f(1, 0), Point2f(1, 1), Point2f(0, 1)]
+
+# Fill with pattern
+poly!(ax, rect; color=pat, strokewidth=1)
+
+f</code></pre>
+</div>
+<h3 id="Multiple-Patterns" class="md-heading">Multiple Patterns<a href="#Multiple-Patterns" class="md-heading-anchor" aria-label="Link to this section">#</a></h3>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using MakiePatterns
+using CairoMakie
+
+f = Figure(size=(800, 400))
+ax = Axis(f[1, 1])
+
+patterns_to_show = [:p101_C, :p102_C, :p103_C, :p104_C]
+
+for (i, pat_name) in enumerate(patterns_to_show)
+    pat = pattern(pat_name)
+    rect = [Point2f(i-1, 0), Point2f(i, 0), Point2f(i, 1), Point2f(i-1, 1)]
+    poly!(ax, rect; color=pat, strokewidth=1, strokecolor=:black)
+end
+
+f</code></pre>
+</div>
+<h2 id="Choropleth-Maps" class="md-heading">Choropleth Maps<a href="#Choropleth-Maps" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<h3 id="Basic-Choropleth-with-Patterns" class="md-heading">Basic Choropleth with Patterns<a href="#Basic-Choropleth-with-Patterns" class="md-heading-anchor" aria-label="Link to this section">#</a></h3>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using MakiePatterns, GeoMakie, CairoMakie
+using DataFrames, GeoDataFrames
+
+# Load your geospatial data
+df = DataFrame(...)  # Must have geometry column and bins column
+
+# Create a GeoAxis
+f = Figure(size=(3200, 2400))
+ga = GeoAxis(f[1, 1]; dest=&quot;EPSG:5070&quot;)
+hidedecorations!(ga)
+
+# Plot with 8 different patterns for 8 bins
+patternpoly!(ga, df.geometry, df.bins;
+             patterns=[:p701_K, :p610_M, :p710_C, :p643_DO,
+                      :p656_C, :p601_K, :p707_M, :p717_C],
+             strokewidth=0.5)
+
+f</code></pre>
+</div>
+<h3 id="Choropleth-with-Custom-Factors" class="md-heading">Choropleth with Custom Factors<a href="#Choropleth-with-Custom-Factors" class="md-heading-anchor" aria-label="Link to this section">#</a></h3>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using MakiePatterns, GeoMakie, CairoMakie
+
+# Create figure
+f = Figure(size=(3200, 2400))
+ga = GeoAxis(f[1, 1]; dest=&quot;EPSG:5070&quot;)
+hidedecorations!(ga)
+
+# Use different downsample factors for different bins
+# Smaller factors = larger patterns, larger factors = smaller patterns
+patternpoly!(ga, df.geometry, df.bins;
+             patterns=[:p101_C, :p102_C, :p103_C, :p104_C],
+             factors=[2, 4, 6, 8],  # Progressively smaller patterns
+             strokewidth=0.5)
+
+f</code></pre>
+</div>
+<h2 id="Pattern-Customization" class="md-heading">Pattern Customization<a href="#Pattern-Customization" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<h3 id="Adjusting-Pattern-Scale" class="md-heading">Adjusting Pattern Scale<a href="#Adjusting-Pattern-Scale" class="md-heading-anchor" aria-label="Link to this section">#</a></h3>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using MakiePatterns, CairoMakie
+
+f = Figure(size=(1200, 400))
+
+# Same pattern, different factors
+for (i, factor) in enumerate([2, 5, 10])
+    ax = Axis(f[1, i]; title=&quot;Factor = $factor&quot;)
+    pat = pattern(:p101_C; factor=factor)
+    rect = [Point2f(0, 0), Point2f(1, 0), Point2f(1, 1), Point2f(0, 1)]
+    poly!(ax, rect; color=pat, strokewidth=1)
+end
+
+f</code></pre>
+</div>
+<h3 id="Pattern-Preview-Gallery" class="md-heading">Pattern Preview Gallery<a href="#Pattern-Preview-Gallery" class="md-heading-anchor" aria-label="Link to this section">#</a></h3>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using MakiePatterns, CairoMakie
+
+# Get first 20 patterns
+patterns_list = available_patterns()[1:20]
+
+# Create a grid
+ncols = 5
+nrows = ceil(Int, length(patterns_list) / ncols)
+
+f = Figure(size=(1200, 1000))
+
+for (idx, pat_name) in enumerate(patterns_list)
+    row = div(idx - 1, ncols) + 1
+    col = mod(idx - 1, ncols) + 1
+
+    ax = Axis(f[row, col]; title=string(pat_name))
+    hidedecorations!(ax)
+
+    pat = pattern(pat_name)
+    rect = [Point2f(0, 0), Point2f(1, 0), Point2f(1, 1), Point2f(0, 1)]
+    poly!(ax, rect; color=pat, strokewidth=0.5)
+end
+
+f</code></pre>
+</div>
+<h2 id="Working-with-Cache" class="md-heading">Working with Cache<a href="#Working-with-Cache" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<h3 id="Cache-Management" class="md-heading">Cache Management<a href="#Cache-Management" class="md-heading-anchor" aria-label="Link to this section">#</a></h3>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using MakiePatterns
+
+# Patterns are cached by default
+pat1 = pattern(:p101_C; cache=true)
+
+# Load the same pattern (returns cached version)
+pat2 = pattern(:p101_C; cache=true)
+
+# Clear the cache
+clear_pattern_cache!()
+
+# Force reload without using cache
+pat3 = pattern(:p101_C; cache=false)</code></pre>
+</div>
+<h2 id="Advanced-Usage" class="md-heading">Advanced Usage<a href="#Advanced-Usage" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<h3 id="Custom-Pattern-Registration" class="md-heading">Custom Pattern Registration<a href="#Custom-Pattern-Registration" class="md-heading-anchor" aria-label="Link to this section">#</a></h3>
+<p>If you have your own pattern files:</p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using MakiePatterns
+
+# Register a custom pattern
+register_pattern!(:my_custom_pattern, &quot;path/to/pattern.png&quot;; default_factor=4)
+
+# Now use it
+pat = pattern(:my_custom_pattern)</code></pre>
+</div>
+<h3 id="Listing-Available-Patterns" class="md-heading">Listing Available Patterns<a href="#Listing-Available-Patterns" class="md-heading-anchor" aria-label="Link to this section">#</a></h3>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">using MakiePatterns
+
+# Get all pattern names
+all_patterns = available_patterns()
+
+println(&quot;Total patterns: &quot;, length(all_patterns))
+println(&quot;First 10: &quot;, all_patterns[1:10])
+
+# Filter patterns by name
+c_patterns = filter(p -&gt; occursin(&quot;_C&quot;, string(p)), all_patterns)
+println(&quot;Patterns ending in _C: &quot;, length(c_patterns))</code></pre>
+</div>
+      </article>
+      <footer class="md-footer">
+<p>Built with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and <a href="https://github.com/mthelm85/MaterialDocs.jl">MaterialDocs.jl</a>.</p>
+      </footer>
+    </main>
+    <aside class="md-toc">
+      <div class="md-toc-inner">
+        <p class="md-toc-title">On this page</p>
+          <a class="md-toc-link md-toc-h2" href="#Basic-Pattern-Usage">Basic Pattern Usage</a>
+            <a class="md-toc-link md-toc-h3" href="#Single-Pattern">Single Pattern</a>
+            <a class="md-toc-link md-toc-h3" href="#Multiple-Patterns">Multiple Patterns</a>
+          <a class="md-toc-link md-toc-h2" href="#Choropleth-Maps">Choropleth Maps</a>
+            <a class="md-toc-link md-toc-h3" href="#Basic-Choropleth-with-Patterns">Basic Choropleth with Patterns</a>
+            <a class="md-toc-link md-toc-h3" href="#Choropleth-with-Custom-Factors">Choropleth with Custom Factors</a>
+          <a class="md-toc-link md-toc-h2" href="#Pattern-Customization">Pattern Customization</a>
+            <a class="md-toc-link md-toc-h3" href="#Adjusting-Pattern-Scale">Adjusting Pattern Scale</a>
+            <a class="md-toc-link md-toc-h3" href="#Pattern-Preview-Gallery">Pattern Preview Gallery</a>
+          <a class="md-toc-link md-toc-h2" href="#Working-with-Cache">Working with Cache</a>
+            <a class="md-toc-link md-toc-h3" href="#Cache-Management">Cache Management</a>
+          <a class="md-toc-link md-toc-h2" href="#Advanced-Usage">Advanced Usage</a>
+            <a class="md-toc-link md-toc-h3" href="#Custom-Pattern-Registration">Custom Pattern Registration</a>
+            <a class="md-toc-link md-toc-h3" href="#Listing-Available-Patterns">Listing Available Patterns</a>
+      </div>
+    </aside>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/julia.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/julia-repl.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script src="../siteinfo.js"></script>
+  <script src="../../versions.js"></script>
+  <script src="../assets/materialdocs.js?v=2ad6f419"></script>
+</body>
+</html>
